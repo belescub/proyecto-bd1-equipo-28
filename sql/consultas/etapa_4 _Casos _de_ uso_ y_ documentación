@@ -1,0 +1,79 @@
+# Casos de uso – Etapa IV (Proyecto Ice SQL)
+
+## Introducción
+
+Este documento describe los casos de uso de las consultas SQL desarrolladas en la Etapa IV del proyecto Ice SQL, la base de datos de una heladería (SQL Server). Para cada consulta se explica qué objetivo cumple, quién la utiliza y en qué situación, qué datos devuelve, qué tablas vincula y un ejemplo de resultado con los datos de prueba.
+
+## Resumen general de la Etapa IV
+
+| Punto | Consulta | Técnicas SQL utilizadas | Tablas involucradas |
+|---|---|---|---|
+| 1 | Factura o comprobante de venta | JOIN, `SUM() OVER (PARTITION BY ...)`, CTE de verificación | Venta, Cliente, Vendedor, Metodo_pago, Detalle_venta, Producto, Presentacion |
+| 2 | Reporte de ventas por vendedor | JOIN, `GROUP BY`, `SUM()`, `COUNT(DISTINCT ...)`, filtro por fechas | Vendedor, Venta, Detalle_venta |
+| 3 | Productos con recaudación superior al promedio | JOIN, `GROUP BY`, `HAVING`, subconsulta | Producto, Detalle_venta, Venta |
+
+Orden de ejecución para reproducir las pruebas: DDL, DML (INSERT de datos de prueba), script de consultas y script de pruebas.
+
+## Consulta 1: Factura o comprobante de venta
+
+- **Objetivo:** Detallar la venta realizada para que los clientes vean reflejada su compra.
+- **Actor / situación de uso:** Será ejecutada por el administrador o el vendedor a la hora de cobrar o revisar una venta. El cliente recibe el comprobante.
+- **Datos que devuelve:** Devuelve datos de utilidad como la identificación de la venta, fecha y hora, datos del cliente, cantidad de productos, precios, subtotal por renglón, total de la factura, datos de la presentación y datos del vendedor.
+- **Tablas que usa:** Venta, Cliente, Vendedor, Metodo_pago, Detalle_venta, Producto y Presentacion.
+
+- **Ejemplo de resultado:** venta 1
+
+  | Numero_Venta | Fecha | Hora | Cliente | Vendedor | Metodo_Pago | Producto | Presentacion | Cantidad | Precio_Unitario | Subtotal_Renglon | Total_Factura |
+  |---|---|---|---|---|---|---|---|---|---|---|---|
+  | 1 | 2026-09-21 | 11:15 | Juan Perez | Juan Gomez | Efectivo | Helado sin TACC | Vaso chico | 2 | 2500.00 | 5000.00 | 5000.00 |
+
+- **Verificación:** Muestra la comparación del total de la factura contra la suma de sus subtotales y devuelve una fila por venta. Si coinciden muestra OK; en caso contrario, ERROR.
+
+## Consulta 2: Reporte de ventas por vendedor
+
+- **Objetivo:** Mostrar el reporte agregado de ventas por vendedor.
+- **Actor / situación de uso:** Estará operativa como documentación para un posterior análisis de los dueños del negocio, para tener conocimiento del desempeño y la labor de los vendedores.
+- **Datos que devuelve:** Devuelve una fila por vendedor con su id_vendedor, nombre, cantidad de ventas, unidades vendidas y recaudación total, ordenadas de mayor a menor recaudación.
+- **Tablas que usa:** Vendedor, Venta y Detalle_venta.
+- **Parámetros:** Fecha desde y fecha hasta, que pueden modificarse. Ejemplo: del 21/09/2026 al 30/09/2026.
+- **Ejemplo de resultado:** período del 21/09/2026 al 30/09/2026
+
+  | ID_Vendedor | Vendedor | Cantidad_Ventas | Unidades_Vendidas | Recaudacion_Total |
+  |---|---|---|---|---|
+  | 1 | Juan Gomez | 2 | 3 | 35000.00 |
+
+
+## Consulta 3: Productos con recaudación superior al promedio
+
+- **Objetivo:** Identificar los productos más rentables, mostrando solo aquellos cuya recaudación supera el promedio de recaudación de todos los productos.
+- **Actor / situación de uso:** Será utilizada por los dueños o encargados de la heladería para saber cuáles son los productos estrella, por ejemplo al decidir qué productos comprar, reponer o promocionar.
+- **Datos que devuelve:** Devuelve una fila por producto con su descripción, cantidad de ventas en las que aparece, unidades vendidas y recaudación total. Solo incluye los productos que superan el promedio de recaudación y los ordena de mayor a menor recaudación.
+- **Tablas que usa:** Producto, Detalle_venta y Venta.
+- **Ejemplo de resultado:**
+
+  | Producto | Cantidad_Ventas | Unidades_Vendidas | Recaudacion_Total |
+  |---|---|---|---|
+  | Helado clasico | 1 | 1 | 30000.00 |
+  | Helado especial | 1 | 1 | 23500.00 |
+  | Helado sin TACC | 3 | 5 | 17500.00 |
+  | Helado chocolate | 1 | 1 | 17000.00 |
+
+## Pruebas y verificación (Etapa IV)
+
+Se ejecutaron las consultas de los puntos 1, 2 y 3 sobre la base ICE_SQL con los datos de prueba, y se realizaron controles adicionales para verificar los resultados. Todas las consultas se ejecutaron sin errores.
+
+### Controles realizados
+
+| Prueba | Qué se verificó | Resultado esperado | Resultado obtenido |
+|---|---|---|---|
+| 1 | Existencia de ventas, detalles y ventas en el rango del reporte | Datos presentes | 10 ventas, 10 renglones de detalle y 10 ventas en el rango (21/09/2026 al 30/09/2026) |
+| 2 | Integridad de claves: detalles sin venta, sin producto y sin presentación | 0 / 0 / 0 | 0 / 0 / 0 |
+| 3 | Conciliación entre el total general de ventas y el total por vendedores | Diferencia = 0 | Total general $119.500, total por vendedores $119.500, diferencia 0 |
+| 4 | Ventas sin renglón de detalle | 0 | 0 |
+| 5 | Productos que superan el promedio de recaudación | 4 | 4 |
+
+### Observación detectada
+
+- **Qué pasó:** El archivo de la consulta 1 incluía un `INSERT` de prueba que agrega un renglón a la venta 1 (1 cucurucho de helado sin azúcar a $3000) para probar los subtotales y totales. El script final con las consultas no lo incluye.
+- **Impacto:** Sin ese renglón, la venta 1 tiene 1 renglón y un total de $5000; con él, 2 renglones y $8000. También cambia la consulta 2 (Juan Gomez: 3 unidades y $35.000 sin el renglón, 4 unidades y $38.000 con él). La consulta 3 devuelve los mismos 4 productos en ambos casos.
+- **Resolución:** Los ejemplos de este documento se actualizaron para coincidir con lo que devuelve el script final ejecutado sobre los datos de prueba originales, sin el renglón extra.
