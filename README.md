@@ -70,13 +70,14 @@ El sistema cuenta con scripts DML complejos diseñados para la extracción de m�
 <h2><picture> <img align="left"src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3cWhuZ2w3dGpwZmJlY2c5b3gzOWh5azU3bnRrN2Mwd3FkajA2YWI3ayZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/CNf0N9qikZpt3k4Ihh/giphy.gif" width="50" alt="imagen">
 </picture>Accesos</h2>
 
-- [docs](#docs)
-     - [etapa1](#etapa1)
-     - [etapa2/der](#etapa2/der)
-- [sql](#sql)
-    - [Técnico](#Técnico)
-    - [Consultas](#consultas)
-- [README.md](#README.md)
+- [docs](docs/)
+  - [etapa1](docs/etapa1/)
+  - [etapa2/der](docs/etapa2/der/)
+
+- [sql](sql/)
+  - [Técnico](sql/Técnico/)
+  - [Consultas](sql/Consultas/)
+- [README.md](README.md)
 
 <br>
 <h3><picture> Hasta pronto, Saludos! <img align="center"src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW9tcnM5MzJ3ZGZuOWZvbzR2ZjhyeW1oaDJuaDFtcTVxeXQ3ZTF2OSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/w1OBpBd7kJqHrJnJ13/giphy.gif" width="50" alt="imagen">
