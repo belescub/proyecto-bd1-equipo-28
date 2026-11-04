@@ -75,7 +75,7 @@ El sistema cuenta con scripts DML complejos diseñados para la extracción de m�
   - [etapa2/der](https://github.com/belescub/proyecto-bd1-equipo-28/tree/721dabdd3fa8bf98d2edacafa83ef74bbb3ea66e/docs/etapa2/der)
 - [sql](https://github.com/belescub/proyecto-bd1-equipo-28/tree/721dabdd3fa8bf98d2edacafa83ef74bbb3ea66e/sql)
   - [Técnico](https://github.com/belescub/proyecto-bd1-equipo-28/tree/721dabdd3fa8bf98d2edacafa83ef74bbb3ea66e/sql/T%C3%A9cnico)
-  - [Consultas](https://github.com/belescub/proyecto-bd1-equipo-28/tree/721dabdd3fa8bf98d2edacafa83ef74bbb3ea66e/sql/consultassql/consultas/)
+  - [Consultas](https://github.com/belescub/proyecto-bd1-equipo-28/tree/721dabdd3fa8bf98d2edacafa83ef74bbb3ea66e/sql/consultas)
 - [README.md](https://github.com/belescub/proyecto-bd1-equipo-28/blob/721dabdd3fa8bf98d2edacafa83ef74bbb3ea66e/README.md)
 
 <br>
