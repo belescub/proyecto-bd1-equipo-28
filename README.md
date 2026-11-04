@@ -1,4 +1,4 @@
-<h1 align="center"><picture> Hola, Bienvenido al repo del Grupo 28! <img align="center"src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW9tcnM5MzJ3ZGZuOWZvbzR2ZjhyeW1oaDJuaDFtcTVxeXQ3ZTF2OSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/w1OBpBd7kJqHrJnJ13/giphy.gif" width="50" alt="imagen">
+ <h1 align="center"><picture> Hola, Bienvenido al repo del Grupo 28! <img align="center"src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW9tcnM5MzJ3ZGZuOWZvbzR2ZjhyeW1oaDJuaDFtcTVxeXQ3ZTF2OSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/w1OBpBd7kJqHrJnJ13/giphy.gif" width="50" alt="imagen">
 </picture></h1>
 
 ## Sistema de Gestion de Venta de Helados "Ice SQL" 
@@ -70,14 +70,13 @@ El sistema cuenta con scripts DML complejos diseñados para la extracción de m�
 <h2><picture> <img align="left"src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3cWhuZ2w3dGpwZmJlY2c5b3gzOWh5azU3bnRrN2Mwd3FkajA2YWI3ayZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/CNf0N9qikZpt3k4Ihh/giphy.gif" width="50" alt="imagen">
 </picture>Accesos</h2>
 
-- [docs](docs/)
-  - [etapa1](docs/etapa1/)
-  - [etapa2/der](docs/etapa2/der/)
-
-- [sql](sql/)
-  - [Técnico](sql/Técnico/)
-  - [Consultas](sql/Consultas/)
-- [README.md](README.md)
+- [docs](https://github.com/belescub/proyecto-bd1-equipo-28/tree/721dabdd3fa8bf98d2edacafa83ef74bbb3ea66e/docs)
+  - [etapa1](https://github.com/belescub/proyecto-bd1-equipo-28/tree/721dabdd3fa8bf98d2edacafa83ef74bbb3ea66e/docs/etapa1)
+  - [etapa2/der](https://github.com/belescub/proyecto-bd1-equipo-28/tree/721dabdd3fa8bf98d2edacafa83ef74bbb3ea66e/docs/etapa2/der)
+- [sql](https://github.com/belescub/proyecto-bd1-equipo-28/tree/721dabdd3fa8bf98d2edacafa83ef74bbb3ea66e/sql)
+  - [Técnico](https://github.com/belescub/proyecto-bd1-equipo-28/tree/721dabdd3fa8bf98d2edacafa83ef74bbb3ea66e/sql/T%C3%A9cnico)
+  - [Consultas](https://github.com/belescub/proyecto-bd1-equipo-28/tree/721dabdd3fa8bf98d2edacafa83ef74bbb3ea66e/sql/consultassql/consultas/)
+- [README.md](https://github.com/belescub/proyecto-bd1-equipo-28/blob/721dabdd3fa8bf98d2edacafa83ef74bbb3ea66e/README.md)
 
 <br>
 <h3><picture> Hasta pronto, Saludos! <img align="center"src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW9tcnM5MzJ3ZGZuOWZvbzR2ZjhyeW1oaDJuaDFtcTVxeXQ3ZTF2OSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/w1OBpBd7kJqHrJnJ13/giphy.gif" width="50" alt="imagen">
