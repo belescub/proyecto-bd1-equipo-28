@@ -20,7 +20,7 @@
 
 <picture> <img align="right" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmlyMmJmNjM4bmhkcWZpNjQwczMzZW1ycG01ODBqbnpwZ3ZyMjJ0diZlcD12MV9naWZzX3NlYXJjaCZjdD1n/FHSVRgD572LeQpSEBf/giphy.gif" width = 300px></picture>
 
-Ice SQL es un sistema de gestión de base de datos relacional (desarrollado en SQL Server) orientado a la administración integral de una heladería comercial, tomando como modelo de negocio los procesos operativos de franquicias como Grido. El sistema está diseñado para abarcar el ciclo de vida completo del negocio: desde el registro de clientes, proveedores y productos, hasta el control transaccional de cajas, stock y facturación. 
+Ice SQL es un sistema de gestión de base de datos relacional (desarrollado en SQL Server) orientado a la administración integral de una heladería comercial, tomando como modelo de negocio los procesos operativos de franquicias como Grido. El sistema está diseñado para abarcar el ciclo de vida completo del negocio: desde el registro de clientes y productos, hasta el control transaccional de cajas, stock y facturación. 
 <br clear="right">
 
 <h3>Funcionalidades y Reglas de Negocio</h3>
